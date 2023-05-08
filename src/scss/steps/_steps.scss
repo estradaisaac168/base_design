@@ -1,0 +1,50 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+
+
+.steps {
+    margin-top: v.$gap;
+
+    &__wave {}
+
+    &__content {
+        background-color: v.$primary;
+        margin-top: -1px;
+    }
+
+    &__title {
+        text-align: center;
+        color: v.$white;
+
+        &--description {
+            font-size: 2rem;
+            display: block;
+        }
+    }
+
+    &__grid {
+        @include m.tablet {
+            @include m.grid(3, v.$gap);
+            // align-content: center;
+            // justify-content: center;
+        }
+    }
+
+    &__img {
+
+        transition-property: transform;
+
+        transition-duration: 300ms;
+
+        &:hover {
+            transform: rotate(-4deg) scale(1.1);
+        }
+
+        @include m.phone {
+
+            &:hover {
+                transform: rotate(-4deg) scale(1);
+            }
+        }
+    }
+}
